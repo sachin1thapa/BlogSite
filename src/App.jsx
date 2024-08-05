@@ -1,19 +1,25 @@
-import config from './config/config.js';
-import './App.css';
-
-
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/home';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Layout />,
+      children: [
+        {
+          path: '/',
+          element: <Home />,
+        },
+      ],
+    },
+  ]);
 
   return (
     <>
-      <button>
-        <a href={config.appwriteUrl} target="_blank">
-          {config.appwriteUrl}
-        </a>
-      </button>
+      <RouterProvider router={router} />
     </>
   );
 }
-
 export default App;
