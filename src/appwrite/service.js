@@ -1,10 +1,6 @@
 import { Client, Databases, ID, Query } from 'appwrite';
 import config from '../config/config';
-
-export const STATUES = Object.freeze({
-  TRUE: 'true',
-  FALSE: 'false',
-});
+import { USERSTATUES } from '../constants';
 
 class Service {
   client = new Client();
@@ -101,7 +97,7 @@ class Service {
       const result = await this.database.listDocuments(
         config.appwriteDataBaseId,
         config.appwriteCollectionID,
-        [Query.equal('status', STATUES.TRUE)]
+        [Query.equal('status', USERSTATUES.TRUE)]
       );
       if (result) {
         return { msg: 'Posts fetched successfully', status: 200, posts: result };

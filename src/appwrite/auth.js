@@ -8,7 +8,7 @@ class Authservice {
   constructor() {
     this.client.setEndpoint(config.appwriteUrl).setProject(config.appwriteProjectID);
     this.account = new Account(this.client);
-    console.log(this.client);
+    console.log(this.account);
   }
 
   async CreateAccount({ email, password, name }) {
@@ -44,11 +44,9 @@ class Authservice {
       const UserAccount = await this.account.get();
       if (UserAccount) {
         return { msg: 'User fetched successfully', status: 200, user: UserAccount };
-      } else {
-        throw new Error('Error while fetching the User');
       }
     } catch (error) {
-      throw new Error('Error while fetching the User ', error);
+      throw new Error('Error while fetching the User  ', error);
     }
   }
 

@@ -1,6 +1,12 @@
+import FetchBlog from "../components/main/FetchBlog"
+
 function Home() {
   return (
-    <div>Home</div>
+    <>
+      <div className="">
+        <FetchBlog/>
+    </div>
+    </>
   )
 }
 export default Home
